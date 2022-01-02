@@ -44,11 +44,8 @@ app.get('/list', async function (req, res) {
         return {id: user_aux.id, nome: user_aux.nome, sobrenome: user_aux.sobrenome, carid: user_aux.carid}
     })
     console.log(aux)
-    //console.log("Todo usuario> ", JSON.stringify(userd, null));
-    //const userobj = `{id: ${userd.id}, nome: ${userd.nome}, sobrenome: ${userd.sobrenome}, carid: ${userd.carid}}`
     res.render('lista', {userY: aux})
-    //res.render('lista', {userY: userobj})
-    //res.send('info')
+
 })
 
 app.get('/pageform', function(req, res){
