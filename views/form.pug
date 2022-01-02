@@ -1,0 +1,23 @@
+extends ../includes/base_html.pug
+
+block criarx
+
+    <div class="card">
+        <div class="card-body">
+            <form class="my-2" action="/create" method="post">
+                <div class="d-flex flex-column">
+                    <label class="form-label" for="">Nome</label>
+                    <input type="text" name="nomex" id="nomeid" maxlength="21" minlength="8">
+                    <label class="form-label" for="">Sobrenome</label>
+                    <input type="text" name="sobrenomex" id="sobrenomeid">
+                    <input class="form-label" type="submit">
+                </div>
+
+            </form>
+        </div>
+
+        <div class="card-footer">
+            <a href="/list" class="btn btn-success mx-2">go lista</a>
+        </div>
+
+    </div>

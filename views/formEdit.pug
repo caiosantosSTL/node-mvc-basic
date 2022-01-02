@@ -1,0 +1,26 @@
+extends ../includes/base_html.pug
+
+block editarx
+
+    <div class="card">
+        
+        <h1>#{nomeix}</h1>
+
+        <div class="card-body">
+            form(class="my-2" action="/update/" + idx method="post")
+                <div class="d-flex flex-column">
+                    <label class="form-label" for="">Nome</label>
+                    <input type="text" value="#{nomeix}" name="nomex" id="nomeid" maxlength="21" minlength="8">
+                    <label class="form-label" for="">Sobrenome</label>
+                    <input type="text" value="#{sobrenomeix}" name="sobrenomex" id="sobrenomeid">
+                    <input class="form-label" type="submit">
+                </div>
+
+            
+        </div>
+
+        <div class="card-footer">
+            <a href="/list" class="btn btn-success mx-2">go lista</a>
+        </div>
+
+    </div>

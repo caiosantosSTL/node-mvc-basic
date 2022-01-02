@@ -1,0 +1,24 @@
+extends ../includes/base_html.pug
+
+block listasx
+    a(class="btn btn-success mt-4", href="/pageform") Criar info
+    div(class="mb-2")
+        table
+            thead 
+                tr
+                    th(scope="col") Nome 
+                    th(scope="col") Sobrenome 
+                
+                each user in userY
+                    tr
+                        td #{user.nome}
+                        td #{user.sobrenome}
+                        td #{user.carid}
+                        td 
+                            a(class="btn btn-success mx-2", href="/pageedit/"+ user.id) editar #{user.id}
+                        td 
+                            a(class="btn btn-danger mx-2", href="/delete/"+ user.id) deletar #{user.id}
+
+
+
+
