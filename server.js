@@ -38,11 +38,14 @@ app.get('/getinfo', async function (req, res) {
 })
 
 app.get('/list', async function (req, res) {
-    const userd = await Model1.User.findAll()
-    //console.log("**** ", userd);
+    const userd = await Model1.User.findAll({include: {model: Model2.Car}})
+    console.log("**** ", userd);
     var aux = userd.map(function(user_aux){
-        return {id: user_aux.id, nome: user_aux.nome, sobrenome: user_aux.sobrenome, carid: user_aux.carid}
+        return {id: user_aux.id, nome: user_aux.nome, sobrenome: user_aux.sobrenome, carId: user_aux.carId, car: user_aux.car.marca}
     })
+    //const oo = JSON.parse(userd)
+    
+
     console.log(aux)
     res.render('lista', {userY: aux})
 
@@ -55,7 +58,16 @@ app.get('/pageform', function(req, res){
 app.post('/create', async function(req, res){
     const newUser = await Model1.User.create({
         nome: req.body.nomex,
-        sobrenome: req.body.sobrenomex
+        sobrenome: req.body.sobrenomex,
+        carId: req.body.caridx
+    })
+
+    res.redirect('/list')
+})
+
+app.get('/car', async function(req, res){
+    const newCar = await Model2.Car.create({
+        marca: 'Fiat'
     })
 
     res.redirect('/list')

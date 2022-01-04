@@ -8,12 +8,14 @@ block listasx
                 tr
                     th(scope="col") Nome 
                     th(scope="col") Sobrenome 
+                    th(scope="col") Carro 
                 
                 each user in userY
                     tr
                         td #{user.nome}
                         td #{user.sobrenome}
-                        td #{user.carid}
+                        td #{user.carId}
+                        td #{user.car}
                         td 
                             a(class="btn btn-success mx-2", href="/pageedit/"+ user.id) editar #{user.id}
                         td 
